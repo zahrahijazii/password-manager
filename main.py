@@ -80,7 +80,7 @@ def find_password():
         except KeyError:
             messagebox.showinfo(title=f"Oops", message="No details for the website exists")
         else:
-            messagebox.showinfo(title=f"{website}", message=f"Email/Username: {data_info['email']},\n Password: {data_info['password']}")
+            messagebox.showinfo(title=f"{website}", message=f"Email/Username: {data_info['email']},\nPassword: {data_info['password']}")
 
     
 # ---------------------------- UI SETUP ------------------------------- #
