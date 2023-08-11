@@ -61,11 +61,26 @@ def save():
                 #saving updated data
                 json.dump(data, data_file, indent=4)
         finally:
-            
+
             website_input.delete(0, END)
             email_input.delete(0, END)
             password_input.delete(0, END)
 
+# ---------------------------- DATA SEARCH ------------------------------- #
+def find_password():
+    website = website_input.get()
+    try:
+        with open("data.json", "r") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+         messagebox.showinfo(title=f"Oops", message="No Data File Found")
+    else:
+        try:
+            data_info = data[website]
+        except KeyError:
+            messagebox.showinfo(title=f"Oops", message="No details for the website exists")
+        else:
+            messagebox.showinfo(title=f"{website}", message=f"Email/Username: {data_info['email']},\n Password: {data_info['password']}")
 
     
 # ---------------------------- UI SETUP ------------------------------- #
@@ -110,6 +125,9 @@ generate_password_btn.grid(row=3, column=2)
 
 add_btn = Button(text="Add", width=36, command=save)
 add_btn.grid(row=4, column=1, columnspan=2)
+
+search_data = Button(text="Search", width=15, command=find_password)
+search_data.grid(row=1, column=3)
 
 
 window.mainloop()
