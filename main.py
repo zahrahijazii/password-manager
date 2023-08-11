@@ -115,19 +115,19 @@ email_input = Entry(width=35)
 email_input.grid(row=2, column=1, columnspan=2)
 #email_input.insert(0, "zahra@gmail.com")
 
-password_input = Entry(width=21)
-password_input.grid(row=3, column=1)
+password_input = Entry(width=35)
+password_input.grid(row=3, column=1, columnspan=2)
 
 
 #Buttons
 generate_password_btn = Button(text="Generate Password", width=15, command=generate_password)
-generate_password_btn.grid(row=3, column=2)
+generate_password_btn.grid(row=3, column=3)
 
-add_btn = Button(text="Add", width=36, command=save)
+add_btn = Button(text="Add", width=30, command=save)
 add_btn.grid(row=4, column=1, columnspan=2)
 
-search_data = Button(text="Search", width=15, command=find_password)
-search_data.grid(row=1, column=3)
+search_button = Button(text="Search", width=13, command=find_password)
+search_button.grid(row=1, column=3)
 
 
 window.mainloop()
